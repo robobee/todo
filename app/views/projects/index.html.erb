@@ -1,0 +1,78 @@
+<h1>SIMPLE TODO LISTS</h1>
+<h2>FROM RUBY GARAGE</h2>
+
+<% @projects.each do |project|%>
+
+    <div class="heading">
+		<ul>
+	  		<li class="icon-calendar">cal</li>
+	  		<li class="project-title"><h1><%= project.title %></h1></li>
+	  		<li class="icon-edit">edit</li>
+	  		<li class="icon-delete">trsh</li>
+		</ul>
+    </div>
+    <form action="#" method="post">
+		<div class="input-group">
+	  	<span class="input-group-addon glyphicon glyphicon-plus"></span>
+	  	<input type="text" class="form-control">
+	  	<span class="input-group-btn">
+        	<button class="btn btn-success" type="submit">Add Task</button>
+	  	</span>
+		</div>
+    </form>
+    <div class="list-wrapper">
+		<ul class="list-group">
+	  		<li class="list-group-item">
+	    		<input type="checkbox" id="todo-1"/>
+	    		<label for="todo-1">
+	      			Cras justo odio Cras justo odio Cras justo odio Cras justo odio Cras justo odio Cras justo odio Cras justo odio
+	    		</label>
+	    		<div class="list-item-buttons">
+	      			<div class="list-item-icon move">up</div>
+	      			<div class="list-item-icon edit">edt</div>
+	      			<div class="list-item-icon trash">trsh</div>
+	    		</div>
+	  		</li>
+	  		<li class="list-group-item">
+	    		<input type="checkbox" id="todo-2"/>
+	    		<label for="todo-2">
+	      			Cras justo odio
+	    		</label>
+	    		<div class="list-item-buttons">
+	      			<div class="list-item-icon move">ico</div>
+	      			<div class="list-item-icon edit">ico</div>
+	      			<div class="list-item-icon trash">ico</div>
+	    		</div>
+	  		</li>
+	  		<li class="list-group-item">
+	    		<input type="checkbox" id="todo-3"/>
+	    		<label for="todo-3">
+	      			Cras justo odio
+	    		</label>
+	    		<div class="list-item-buttons">
+	      			<div class="list-item-icon move">ico</div>
+	      			<div class="list-item-icon edit">ico</div>
+	      			<div class="list-item-icon trash">ico</div>
+	    		</div>
+	  		</li>
+	  		<li class="list-group-item">
+	    		<input type="checkbox" id="todo-4"/>
+	    		<label for="todo-4">
+	      			Cras justo odio
+	    		</label>
+	    		<div class="list-item-buttons">
+	      			<div class="list-item-icon move">ico</div>
+	      			<div class="list-item-icon edit">ico</div>
+	      			<div class="list-item-icon trash">ico</div>
+	    		</div>
+	  		</li>
+		</ul>
+    </div>
+
+
+<% end %>
+
+    <button type="button" class="btn btn-primary" id="add-todo-list">
+		<span class="glyphicon glyphicon-plus"></span>
+		Add TODO List
+    </button>
