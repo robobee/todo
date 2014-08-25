@@ -2,9 +2,18 @@
 <html>
 <head>
   <title>TODO App | Projects</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+
+  <!-- Custom styles
+  <link rel="stylesheet" href="custom.css.scss">
+ -->
 </head>
 <body>
 <div class="container">
@@ -12,5 +21,9 @@
   <br />
   <%= debug(params) if Rails.env.development? %>
 </div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+</script>
 </body>
 </html>
