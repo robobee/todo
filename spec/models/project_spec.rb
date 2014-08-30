@@ -15,6 +15,11 @@ describe Project do
     it { should_not be_valid }
   end
 
+  describe "with title that is too long" do
+    before { @project.title = "a" * 201 }
+    it { should_not be_valid }
+  end
+
   describe "when project title already taken" do
     before do
       project = @project.dup
