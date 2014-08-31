@@ -6,7 +6,9 @@
 
     <div class="heading">
 		<ul>
-	  		<li class="icon-calendar">cal</li>
+	  		<li class="icon-calendar">
+	  			<%= image_tag "calendar-icon.png" %>
+	  		</li>
 	  		<li class="project-title"><h1><%= project.title %></h1></li>
 	  		<li class="icon-edit">
 				<%= link_to "edit", edit_project_path(project) %>
