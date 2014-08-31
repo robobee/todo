@@ -3,12 +3,12 @@ class TasksController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @task = @project.tasks.build(task_params)
-    @task.status = "New"
     if @task.save
       flash[:success] = "Task created!"
       redirect_to root_path
     else
-      render root_path
+      flash[:error] = "Name of a task can not be blank!"
+      redirect_to root_path
     end
   end
 
