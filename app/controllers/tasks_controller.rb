@@ -32,6 +32,24 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+  def up
+    task = Task.find(params[:id])
+    if task.promote
+    then flash[:success] = "Task's priority was increased"
+    else flash[:error] = "Something went wrong"
+    end
+    redirect_to root_path
+  end
+
+  def down
+    task = Task.find(params[:id])
+    if task.demote
+    then flash[:success] = "Task's priority was decreased"
+    else flash[:error] = "Something went wrong"
+    end
+    redirect_to root_path
+  end
+
   private
 
     def task_params
