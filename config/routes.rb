@@ -1,5 +1,9 @@
 Todo::Application.routes.draw do
-  resources :projects, only: [:index, :new, :edit, :create, :update, :destroy]
+  resources :projects, only: [:index, :new, :edit, :create, :update, :destroy] do
+    resources :tasks, only: [:create]
+  end
+  resources :tasks, only: [:destroy, :edit, :update]
+  
   root 'projects#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

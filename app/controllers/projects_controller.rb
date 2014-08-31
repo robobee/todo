@@ -25,7 +25,7 @@ end
 def create
   @project = Project.new(project_params)
   if @project.save
-  	flash[:notice] = "#{@project.title} was successfully created."
+  	flash[:success] = "#{@project.title} was successfully created."
   	redirect_to root_path
   else
     render 'new'

@@ -2,7 +2,6 @@
 <h2>FROM RUBY GARAGE</h2>
 
 <% @projects.each do |project|%>
-
     <div class="heading">
 		<ul>
 	  		<li class="icon-calendar">cal</li>
@@ -15,40 +14,38 @@
 	  		</li>
 		</ul>
     </div>
-    <form action="#" method="post">
+
+	<%= form_for [project, project.tasks.build] do |f| %>
 		<div class="input-group">
 	  	<span class="input-group-addon glyphicon glyphicon-plus"></span>
-	  	<input type="text" class="form-control">
-	  	<span class="input-group-btn">
-        	<button class="btn btn-success" type="submit">Add Task</button>
+	<%= f.text_field :name, class: "form-control" %>
+		  	<span class="input-group-btn">
+	<%= f.button "Add Task", class: "btn btn-success", :type => "submit" %>
 	  	</span>
 		</div>
-    </form>
-    
-    <% if project.tasks.any? %>
-
-    	<div class="list-wrapper">
-			<ul class="list-group">
-	  		
-				<% project.tasks.each do |task| %>
-			  		<li class="list-group-item">
-			    		<input type="checkbox" id="<%= task.id %>"/>
-			    		<label for="<%= task.id %>">
-			      			<%= task.name %>
-			    		</label>
-			    		<div class="list-item-buttons">
-			      			<div class="list-item-icon move">up</div>
-			      			<div class="list-item-icon edit">edt</div>
-			      			<div class="list-item-icon trash">trsh</div>
-			    		</div>
-			  		</li>
-			  	<% end %>
-
-			</ul>
-    	</div>
-
 	<% end %>
 
+    <% if project.tasks.any? %>
+    	<div class="list-wrapper">
+			<ul class="list-group">
+				<% project.tasks.each do |task| %>
+					<% if !task.new_record? %>
+				  		<li class="list-group-item">
+				    		<input type="checkbox" id="<%= task.id %>"/>
+				    		<label for="<%= task.id %>">
+				      			<%= task.name %>
+				    		</label>
+				    		<div class="list-item-buttons">
+				      			<div class="list-item-icon move">up</div>
+				      			<div class="list-item-icon edit"><%= link_to "edit", edit_task_path(task) %></div>
+				      			<div class="list-item-icon trash"><%= link_to "trsh", task, method: :delete, data: { confirm: "You sure?" } %></div>
+				    		</div>
+				  		</li>
+			  		<% end %>
+			  	<% end %>
+			</ul>
+    	</div>
+	<% end %>
 <% end %>
 
 <a href="<%= new_project_path %>">
