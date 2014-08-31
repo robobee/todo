@@ -6,10 +6,10 @@
     <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, required: true %>
       <br/>
       <%= f.label :status %>
-      <%= f.text_field :status %>
+      <%= f.text_field :status, required: true, :pattern => 'New|Done' %>
       <br/>
       <%= f.label :deadline %>
       <%= f.text_field :deadline %>      

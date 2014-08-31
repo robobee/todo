@@ -2,6 +2,8 @@
 <h2>FROM RUBY GARAGE</h2>
 
 <% @projects.each do |project|%>
+<div class="project" id ="<%= "project-#{project.id}" %>">
+
     <div class="heading">
 		<ul>
 	  		<li class="icon-calendar">cal</li>
@@ -18,7 +20,7 @@
 	<%= form_for [project, project.tasks.build] do |f| %>
 		<div class="input-group">
 	  	<span class="input-group-addon glyphicon glyphicon-plus"></span>
-	<%= f.text_field :name, class: "form-control" %>
+	<%= f.text_field :name, class: "form-control", required: true %>
 		  	<span class="input-group-btn">
 	<%= f.button "Add Task", class: "btn btn-success", :type => "submit" %>
 	  	</span>
@@ -31,7 +33,7 @@
 				<% project.tasks.each do |task| %>
 					<% if !task.new_record? %>
 				  		<li class="list-group-item">
-				    		<input type="checkbox" id="<%= task.id %>"/>
+				    		<input type="checkbox" id="<%= task.id %>" <%= if task.status == "Done" then "checked" end %>/>
 				    		<label for="<%= task.id %>">
 				      			<%= task.name %>
 				    		</label>
@@ -49,6 +51,7 @@
 			</ul>
     	</div>
 	<% end %>
+</div>
 <% end %>
 
 <a href="<%= new_project_path %>">

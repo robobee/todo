@@ -7,6 +7,8 @@ Todo::Application.routes.draw do
   root 'projects#index'
   patch '/tasks/:id/up', to: 'tasks#up', as: :up
   patch '/tasks/:id/down', to: 'tasks#down', as: :down
+  patch '/tasks/:id/do', to: 'tasks#do'
+  patch '/tasks/:id/undo', to: 'tasks#undo'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

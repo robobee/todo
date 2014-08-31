@@ -14,3 +14,61 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+ /*
+    // TODO list button
+    $('#add-todo-list').on('click', function() {
+	alert('you\'ve clicked on "Add TODO List"');
+    });
+   
+    // Header of a project
+    $('.icon-edit').on('click', function() {
+	alert('you\'ve clicked on "edit" at ' + $(this).closest("ul").find('h1').text());
+    });
+    
+    $('.icon-delete').on('click', function() {
+	alert('you\'ve clicked on "trash" at ' + $(this).closest("ul").find('h1').text());
+    });
+    
+    // List items button
+    $('.move').on('click', function() {
+	alert('you\'ve clicked on "move" at ' + $(this).closest("li").find('label').text());   
+    })
+    
+    $('.edit').on('click', function() {
+	alert('you\'ve clicked on "edit" at ' + $(this).closest("li").find('label').text());   
+    })
+
+    $('.trash').on('click', function() {
+	alert('you\'ve clicked on "trash" at ' + $(this).closest("li").find('label').text());   
+    })
+    */
+
+	$.ajaxSetup({
+	  headers: {
+	    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+	  }
+	});
+
+    $('.list-group').on('click', 'input' ,function(e) { 
+    	var type, id, project, checked;
+    	id = $(this).attr('id');
+    	project = $(this).closest('.project').attr('id').substring(8);
+    	checked = $(this).is(":checked");
+    	if ( checked ) {
+    		type = 'do';
+    	} else {
+    		type = 'undo';
+    	}
+    	console.log('/tasks/' + id + '/' + type);
+	    $.ajax({
+		    type: 'PATCH',
+		    url: '/tasks/' + id + '/' + type,
+		    success: function() {
+		      console.log('hooray');
+		    }
+		});
+    })
+
+});

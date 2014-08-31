@@ -5,11 +5,27 @@ class TasksController < ApplicationController
     @task = @project.tasks.build(task_params)
     if @task.save
       flash[:success] = "Task created!"
-      redirect_to root_path
+      #respond_to do |format|
+        #format.html { 
+        redirect_to root_path #}
+#        format.js
+ #     end
     else
       flash[:error] = "Name of a task can not be blank!"
       redirect_to root_path
     end
+  end
+
+  def do
+    @task = Task.find(params[:id])
+    @task.update(status: "Done")
+    redirect_to root_path
+  end
+
+  def undo
+    @task = Task.find(params[:id])
+    @task.update(status: "New")
+    redirect_to root_path
   end
 
   def edit
