@@ -30,6 +30,11 @@ h2 {
 .input-group {
   padding: 7px 10px 7px 4px;
   background-color: silver;
+  background-image: url(form.png);
+}
+
+.input-group-addon {
+     background-image: url(form.png); 
 }
 
 .form-control {
@@ -38,7 +43,7 @@ h2 {
 
 .input-group > .glyphicon.glyphicon-plus {
   font-size: 1.6em;
-  color: green;
+  color: #5a9172;
   border: 0;
   top: 0;
   background-color: inherit;
@@ -79,6 +84,7 @@ h2 {
 
 .list-group {
     border-radius: 16px;
+    color: #777;
 }
 
 .list-group-item {
@@ -115,7 +121,7 @@ h2 {
     right: 120px;
     width: 1px;
     z-index: 2;
-    border: 1px solid #999999;
+    border: 1px solid #E7EBEA;
     border-width: 0 1px 0 0;
 }
 
@@ -145,6 +151,7 @@ h2 {
     color: white;
     margin-top: 40px;
     cursor: pointer;
+    background-image: url(heading.png);
 }
 
 .heading:hover .icon-edit img {
@@ -229,7 +236,7 @@ h2 {
 }
 
 button .glyphicon-plus {
-  color: black;
+  color: #284066;
   margin-right: 6px;
 }
 
@@ -239,4 +246,10 @@ button .glyphicon-plus {
     list-style: none;
     margin: 0 0 18px 0;
   }
+}
+
+/* Forms */
+
+input {
+  height: auto !important;
 }

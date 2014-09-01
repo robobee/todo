@@ -52,7 +52,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     if task.promote
     then flash[:success] = "Task's priority was increased"
-    else flash[:error] = "Something went wrong"
+    else flash[:success] = "Task already has highest priority!"
     end
     redirect_to root_path
   end
@@ -61,7 +61,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     if task.demote
     then flash[:success] = "Task's priority was decreased"
-    else flash[:error] = "Something went wrong"
+    else flash[:success] = "Task already has lowest priority!"
     end
     redirect_to root_path
   end
