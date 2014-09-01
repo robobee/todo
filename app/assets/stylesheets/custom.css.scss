@@ -30,11 +30,11 @@ h2 {
 .input-group {
   padding: 7px 10px 7px 4px;
   background-color: silver;
-  background-image: url(form.png);
+  background-image: image-url("form.png");
 }
 
 .input-group-addon {
-     background-image: url(form.png); 
+     background-image: image-url("form.png"); 
 }
 
 .form-control {
@@ -151,7 +151,7 @@ h2 {
     color: white;
     margin-top: 40px;
     cursor: pointer;
-    background-image: url(heading.png);
+    background-image: image-url("heading.png");
 }
 
 .heading:hover .icon-edit img {
