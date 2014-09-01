@@ -3,7 +3,7 @@
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 680px;
+    max-width: 730px;
     margin-top: 100px;
   }
 }
@@ -28,7 +28,7 @@ h2 {
 
 /* Customize input-group*/
 .input-group {
-  padding: 0.5em 0.8em 0.5em 0.3em;
+  padding: 7px 10px 7px 4px;
   background-color: silver;
 }
 
@@ -47,8 +47,7 @@ h2 {
 .input-group-btn:last-child > .btn {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-  padding-left: 18px;
-  padding-right: 18px;
+  width: 112px;
 }
 
 /* Customize list group */
@@ -57,7 +56,7 @@ h2 {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 42px;
+    left: 40px;
     width: 5px;
     z-index: 2;
     border: 1px solid #f2e3df;
@@ -90,21 +89,22 @@ h2 {
     font-weight: inherit;
     margin: 0;
     float: left;
-    width: 472px;
+    width: 518px;
     display: block;
+    cursor: pointer;
 }
 
 .list-group input {
-    margin: 0 26px 0 0;
+    margin: 0 32px 0 0;
     position: relative;
     top: 4px;
     float: left;
+    cursor: pointer;
 }
 
 /* Project heading */
 .list-item-buttons {
     float: left;
-    margin: 0 0 0 32px;
 }
 
 .list-item-buttons::before {
@@ -112,7 +112,7 @@ h2 {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 106px;
+    right: 120px;
     width: 1px;
     z-index: 2;
     border: 1px solid #999999;
@@ -121,49 +121,94 @@ h2 {
 
 .list-item-icon {
     float: left;
-    border: 1px solid black;
+    padding-left: 12px;
     visibility: hidden;
 }
+
+.list-item-icon.down::before, .list-item-icon.edit::before, .list-item-icon.trash::before  {
+  content: "|";
+  color: silver;
+  position: relative;
+  top: 1px;
+  left: -6px;
+}
+
 
 .list-group-item:hover .list-item-icon{
     visibility: visible;
 }
 
 .heading {
-    background-color: #66aacc;
+    background-color: gray;
     margin: 0;
     overflow: hidden;
     color: white;
     margin-top: 40px;
+    cursor: pointer;
+}
+
+.heading:hover .icon-edit img {
+  visibility: visible;  
+}
+
+.heading:hover .icon-delete img {
+  visibility: visible;  
+}
+
+.heading:hover .icon-line-large img {
+  visibility: visible;  
 }
 
 .heading ul {
     margin: 0;
-    padding: 0;
+    padding: 12px 0;
+    overflow: hidden;
 }
 
 .heading ul li {
   display: block;
   float: left;
-  background: gray;
-  padding: 0.5em;
   border: 0;
-  height: 36px;
+}
+
+.heading ul li.icon-calendar {
+  padding-left: 16px;
+}
+
+.heading ul li.project-title {
+  padding-left: 9px;
 }
 
 .project-title {
-    width: 82%;
+    width: 77%;
 }
-.icon-calendar {
-    width: 6%;
+
+.project-title h1 {
+    text-align: left;
 }
 
 .icon-edit {
-    width: 6%;
+  padding-left: 46px;
 }
 
 .icon-delete {
-    width: 6%;
+  padding-left: 11px;
+}
+
+.icon-line-large img {
+  padding-left: 11px;
+}
+
+.icon-edit img {
+    visibility: hidden;
+}
+
+.icon-delete img {
+    visibility: hidden;
+}
+
+.icon-line-large img {
+    visibility: hidden;
 }
 
 .heading h1 {
