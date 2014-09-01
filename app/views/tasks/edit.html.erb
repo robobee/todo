@@ -7,12 +7,13 @@
 
       <%= f.label :name %>
       <%= f.text_field :name, required: true %>
-      <br/>
       <%= f.label :status %>
       <%= f.text_field :status, required: true, :pattern => 'New|Done' %>
-      <br/>
       <%= f.label :deadline %>
-      <%= f.text_field :deadline %>      
+      <br />
+      <%= f.date_select :deadline %>
+      <%= f.time_select :deadline, :ignore_date => true %>
+      <br />
       <br />
       <%= f.submit "Save changes to task ", class: "btn btn-large btn-primary" %>
     <% end %>
