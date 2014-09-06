@@ -1,21 +1,19 @@
 <h1>Edit Task</h1>
 
 <div class="row">
-  <div class="span6 offset3" id="edit-form">
+  <div class="span6 offset3" id="form">
     <%= form_for(@task) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
       <%= f.text_field :name, required: true %>
       <%= f.label :status %>
-      <%= f.text_field :status, required: true, :pattern => 'New|Done' %>
+      <%= f.select(:status, options_for_select([['New', 'New'], ['Done', 'Done']])) %>
       <%= f.label :deadline %>
-      <br />
       <%= f.date_select :deadline %>
       <%= f.time_select :deadline, :ignore_date => true %>
       <br />
-      <br />
-      <%= f.submit "Save changes to task ", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

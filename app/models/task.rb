@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :project
-  default_scope -> { order(priority: :asc) } 
+  default_scope -> { order(priority: :asc) }
   before_save :on_save
   before_validation :on_validation
   validates :project_id, presence: true
@@ -39,17 +39,15 @@ class Task < ActiveRecord::Base
   	  self.status ||= "New"
   	end
 
-	def on_save
-	  if self.priority == nil
-	  then
-	  	max_priority = Task.where("project_id = #{self.project_id}").maximum("priority")
-	  	if max_priority == nil
-	  	then self.priority = 1
-	  	else self.priority = max_priority + 1
-		end
-	  else
-
-	  end
-	end
+  	def on_save
+  	  if self.priority == nil
+  	  then
+  	  	max_priority = Task.where("project_id = #{self.project_id}").maximum("priority")
+  	  	if max_priority == nil
+  	  	then self.priority = 1
+  	  	else self.priority = max_priority + 1
+  		  end
+  	  end
+  	end
 
 end

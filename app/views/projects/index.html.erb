@@ -25,7 +25,7 @@
 	<%= form_for [project, project.tasks.build] do |f| %>
 		<div class="input-group">
 	  	<span class="input-group-addon glyphicon glyphicon-plus"></span>
-	<%= f.text_field :name, class: "form-control", required: true %>
+	<%= f.text_field :name, class: "form-control", required: true, placeholder: "Start typing here to create a task...", maxlength: 200 %>
 		  	<span class="input-group-btn">
 	<%= f.button "Add Task", class: "btn btn-success", :type => "submit" %>
 	  	</span>

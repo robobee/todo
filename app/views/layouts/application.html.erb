@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<%= image_tag("bg.jpg", id: "bg") %>
 <div class="container">
   <% flash.each do |key, value| %>
       <% if key == :error then key = :danger end %>
