@@ -1,0 +1,39 @@
+<div class="project" id ="<%= "project-#{project.id}" %>">
+
+    <div class="heading">
+		<ul>
+	  		<li class="icon-calendar">
+	  			<%= image_tag("calendar-icon.png") %>
+	  		</li>
+	  		<li class="project-title"><h1><%= project.title %></h1></li>
+	  		<li class="icon-edit">
+				<%= link_to image_tag("edit-large.png"), edit_project_path(project) %>
+	  		</li>
+	  		<li class="icon-line-large">
+	  			<%= image_tag("line-largo.png") %>
+	  		</li>
+	  		<li class="icon-delete">
+	  			<%= link_to image_tag("trash-large.png"), project, method: :delete, data: { confirm: %{Are you sure you want to delete project "#{project.title}" and all associated tasks?} } %>
+	  		</li>
+		</ul>
+    </div>
+
+	<%= form_for [project, project.tasks.build] do |f| %>
+		<div class="input-group">
+	  		<span class="input-group-addon glyphicon glyphicon-plus"></span>
+			<%= f.text_field :name, class: "form-control", required: true, placeholder: "Start typing here to create a task...", maxlength: 200 %>
+			<span class="input-group-btn">
+				<%= f.button "Add Task", class: "btn btn-success", :type => "submit" %>
+			</span>
+		</div>
+	<% end %>
+
+    <% if project.tasks.any? %>
+    	<div class="list-wrapper">
+			<ul class="list-group">
+				<%= render project.tasks %>
+			</ul>
+    	</div>
+	<% end %>
+	
+</div>
