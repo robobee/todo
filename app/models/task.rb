@@ -16,7 +16,7 @@ class Task < ActiveRecord::Base
   	current_priority = self.priority
   	if current_priority > 1
   	then 
-  	  Task.find_by(priority: current_priority - 1).update(priority: current_priority)
+  	  Task.find_by(priority: current_priority - 1, project_id: self.project_id).update(priority: current_priority)
   	  self.priority = current_priority - 1
   	  self.save
   	end
@@ -27,7 +27,7 @@ class Task < ActiveRecord::Base
   	max_priority = Task.where("project_id = #{self.project_id}").maximum("priority")
   	if current_priority < max_priority
    	then
-  	  Task.find_by(priority: current_priority + 1).update(priority: current_priority)
+  	  Task.find_by(priority: current_priority + 1, project_id: self.project_id).update(priority: current_priority)
   	  self.priority = current_priority + 1
   	  self.save
   	end
