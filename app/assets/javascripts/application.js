@@ -61,13 +61,13 @@ $(document).ready(function() {
     	} else {
     		type = 'undo';
     	}
-    	console.log('/tasks/' + id + '/' + type);
+    	//console.log('/tasks/' + id + '/' + type);
 	    $.ajax({
 		    type: 'PATCH',
 		    url: '/tasks/' + id + '/' + type,
             dataType: "script",
 		    success: function() {
-		      console.log('hooray');
+		      //console.log('hooray');
 		    }
 		});
     })

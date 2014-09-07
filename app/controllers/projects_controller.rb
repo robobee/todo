@@ -25,7 +25,7 @@ end
 def create
   @project = Project.new(project_params)
   if @project.save
-  	flash[:success] = "#{@project.title} was successfully created."
+  	flash[:success] = %|"#{@project.title}" was successfully created.|
   	redirect_to root_path
   else
     render 'new'
@@ -33,9 +33,11 @@ def create
 end
 
 def destroy
-	Project.find(params[:id]).destroy
-    flash[:success] = "Project deleted."
-    redirect_to root_path
+	project = Project.find(params[:id])
+  project_title = project.title
+  project.destroy
+  flash[:success] = %{Project #{project_title} deleted.}
+  redirect_to root_path
 end
 
 private
