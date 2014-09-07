@@ -10,7 +10,7 @@
 		</div>
 		<div class="list-item-icon down"><%= link_to image_tag("down.png"), down_path(task), method: "patch" %></div>
 		<div class="list-item-icon edit"><%= link_to image_tag("edit-small.png"), edit_task_path(task)%></div>
-		<div class="list-item-icon trash"><%= link_to image_tag("trash-small.png"), task, method: :delete, data: { confirm: "Are you sure you want to delete this task?" } %></div>
+		<div class="list-item-icon trash"><%= link_to image_tag("trash-small.png"), task, method: :delete, data: { confirm: "Are you sure you want to delete task \"#{task.name}\"?" } %></div>
 	</div>
 	</li>
 <% end %>

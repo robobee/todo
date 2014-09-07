@@ -65,6 +65,7 @@ $(document).ready(function() {
 	    $.ajax({
 		    type: 'PATCH',
 		    url: '/tasks/' + id + '/' + type,
+            dataType: "script",
 		    success: function() {
 		      console.log('hooray');
 		    }

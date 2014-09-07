@@ -6,7 +6,7 @@
     <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :title %>
-      <%= f.text_field :title, required: true %>
+      <%= f.text_field :title, required: true, maxsize: 200 %>
       <br />
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
