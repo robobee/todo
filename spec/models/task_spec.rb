@@ -12,6 +12,7 @@ describe Task do
   it { should respond_to(:status) }
   it { should respond_to(:priority) }
   it { should respond_to(:deadline) }
+
   it { should respond_to(:project)}
   its(:project) { should eq project }
 
@@ -35,6 +36,16 @@ describe Task do
   describe "with status not from: ( New, Done )" do
     before { @task.status = "foobar" }
     it { should_not be_valid }
+  end
+
+  describe "with status New or Done" do
+    it "should be valid" do
+      statuses = %w[New Done]
+      statuses.each do |valid_status|
+        @task.status = valid_status
+        expect(@task).to be_valid
+      end
+    end
   end
 
   describe "with missed deadline" do

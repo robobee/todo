@@ -7,7 +7,7 @@ describe Project do
 
 	it { should respond_to(:title) }
   it { should respond_to(:tasks) }
-	it { should be_valid }	
+	it { should be_valid }
 
   describe "when title is not present" do
     before { @project.title = " " }

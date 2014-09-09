@@ -5,9 +5,10 @@ FactoryGirl.define do
 
   factory :task	do
     name "Buy ingredients"
-    priority nil
+    priority 1
     deadline Date.new(2014, 10, 10)
     status "New"
     project
   end
+  
 end
