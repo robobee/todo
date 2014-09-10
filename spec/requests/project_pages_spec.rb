@@ -27,7 +27,6 @@ describe "ProjectPages" do
 
     it { should have_content('Edit Project') }
     it { should have_title("TODO App | Edit Project") }
-    it { should have_content('Bake A Cake') }
 
   end
 
